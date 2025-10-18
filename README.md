@@ -1,53 +1,85 @@
 # Bangalore-House-Price-Prediction
+
   Machine learning project to predict Bangalore house prices using Linear Regression, with 85% accuracy after data cleaning, feature engineering, and outlier removal
+  
+📌 Project Overview
 
-📌 Overview
+  This project focuses on predicting house prices in Bangalore using machine learning techniques. The analysis involves data cleaning, feature engineering, and building a predictive model to estimate property prices based on various features such as location, square footage, number of bedrooms, and bathrooms.
 
-  This project analyzes employee salary data and predicts salary based on years of experience. The dataset contained 6,700+ employee records with demographic and job-related details. 
-  Using Linear Regression, the model explored the relationship between experience and salary.
+📊 Dataset Details
 
-📂 Dataset
+The dataset used in this project is Bengaluru_House_Data.csv, which contains 13,320 entries with the following features:
 
-  • 6,704 employee records (age, gender, education, job title, experience, salary)
+• area_type: Type of area (e.g., Super built-up, Plot, Built-up)
 
-  • Cleaned dataset to handle missing values and inconsistencies
+• availability: Availability status of the property
 
-🔑 Objectives
+• location: Neighborhood location
 
-  • Explore the relationship between experience and salary
+• size: Number of bedrooms (e.g., 2 BHK, 3 BHK)
 
-  • Perform EDA on demographics and job categories
+• society: Housing society name
 
-  • Train a Linear Regression model for salary prediction
+• total_sqft: Total square footage
 
-  • Evaluate performance with R², MAE, and MSE metrics
+• bath: Number of bathrooms
 
-🛠️ Steps Performed
+• balcony: Number of balconies
 
-  • Data Cleaning (removed missing/inconsistent values)
+• price: Price of the property (in lakhs)
 
-  • Exploratory Data Analysis (EDA) with correlation heatmaps, histograms, and boxplots
+⦾ Steps Performed
 
-  • Model Training using Linear Regression
+1. Data Cleaning
 
-  • Performance Evaluation with R² = 0.67, MAE, and MSE
+• Removed unnecessary columns (area_type, society, balcony, availability).
 
-📈 Results & Insights
+• Handled missing values by dropping rows with null entries.
 
-  • Salary strongly correlates with years of experience
+• Extracted the number of bedrooms (bhk) from the size column.
 
-  • Educational level and job title also show significant influence
+• Cleaned the total_sqft column by converting ranges (e.g., "1000-1500") to average values.
 
-  • Gender-based salary distribution highlighted in EDA
+2. Feature Engineering
 
-🚀 Future Work
+• Created a new feature price_per_sqft to analyze the relationship between price and square footage.
 
-  • Add more predictors (education level, job title) using one-hot encoding
-  • Experiment with ensemble methods for better accuracy
-  • Build a dashboard to visualize salary insights interactively
+• Grouped less frequent locations under the "other" category to reduce dimensionality.
 
-💻 Technologies Used
+3. Outlier Detection and Removal
 
-  • Python (Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn)
+• Removed properties where the square footage per bedroom was less than 300 sq ft.
 
-  • Jupyter Notebook for analysis
+• Applied statistical methods to remove outliers in the price_per_sqft feature based on standard deviation.
+
+4. Data Visualization
+
+• Used scatter plots to visualize the relationship between square footage and price for different bedroom configurations (e.g., 2 BHK vs. 3 BHK).
+
+⦾ Key Insights
+
+• The dataset initially contained 13,320 entries, which was reduced to 10,222 after cleaning and outlier removal.
+
+• Properties with unusually low square footage per bedroom were identified and removed.
+
+• The price_per_sqft feature was normalized to reduce the impact of extreme values.
+
+⦾ Tools and Libraries
+
+• Python: Primary programming language
+
+• Pandas: Data manipulation and analysis
+
+• NumPy: Numerical computations
+
+• Matplotlib & Seaborn: Data visualization
+
+🔮 Next Steps
+
+• Implement machine learning models for price prediction
+
+• Perform model tuning and validation
+
+• Develop web application for real-time predictions
+
+• Expand analysis to other Indian cities
